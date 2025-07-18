@@ -5,6 +5,8 @@ import CreateSessionForm from "./CreateSessionForm";
 import { API_PATHS } from "../../utils/apiPaths";
 import axiosInstance from "../../utils/axiosinstance";
 import toast from "react-hot-toast";
+import { AnimatePresence, motion } from "framer-motion";
+
 
 const Dashboard = () => {
   const [sessions, setSessions] = useState([]);
@@ -55,11 +57,23 @@ const Dashboard = () => {
         />
 
         {/* Render Fetched Cards */}
+        <AnimatePresence>
         {sessions.map((session) => (
+            <motion.div
+      key={session._id}
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.3 }}
+    >
           <SummaryCard
             key={session._id}
             role={session.role}
-            topicsToFocus={session.topicsToFocus}
+            topicsToFocus={
+          Array.isArray(session.topicsToFocus)
+            ? session.topicsToFocus.join(", ")
+            : session.topicsToFocus
+        }
             experience={session.experience}
             questions={session.questions?.length || 0}
             description={session.description}
@@ -69,7 +83,9 @@ const Dashboard = () => {
             }
             onDelete={() => handleDeleteSession(session._id)} // 👈 NEW
           />
+             </motion.div>
         ))}
+        </AnimatePresence>
       </div>
 
       {/* Add New Button Bottom Left */}

@@ -39,10 +39,10 @@ const LandingPage = () => {
     <div>
       <ParticleBackground />
 
-      <div className="w-full min-h-screen bg-[#FFFCEF] text-black relative z-10">
+      <div className="w-full min-h-screen bg-[#F3F4FF] text-gray-900 relative z-10">
         {/* Header */}
         <header className="container mx-auto px-4 flex justify-between items-center pt-8">
-          <div className="text-xl md:text-2xl font-extrabold">AIcruit</div>
+          <div className="text-xl md:text-2xl font-extrabold text-indigo-700">AIcruit</div>
 
           <div className="flex gap-4">
             {loading ? null : user ? (
@@ -54,7 +54,7 @@ const LandingPage = () => {
                     setCurrentPage("login");
                     setOpenAuthModal(true);
                   }}
-                  className="bg-white border border-orange-400 text-orange-500 px-4 py-2 rounded-md font-semibold text-sm hover:bg-orange-50 transition"
+                  className="bg-white border border-indigo-400 text-indigo-600 px-4 py-2 rounded-md font-semibold text-sm hover:bg-indigo-50 transition"
                 >
                   Login
                 </button>
@@ -63,7 +63,7 @@ const LandingPage = () => {
                     setCurrentPage("signup");
                     setOpenAuthModal(true);
                   }}
-                  className="bg-gradient-to-r from-[#FF9324] to-[#e99a4b] text-white px-4 py-2 rounded-md font-semibold text-sm hover:opacity-90 transition"
+                  className="bg-gradient-to-r from-indigo-500 to-violet-500 text-white px-4 py-2 rounded-md font-semibold text-sm hover:opacity-90 transition"
                 >
                   Sign Up
                 </button>
@@ -74,12 +74,12 @@ const LandingPage = () => {
 
         {/* Hero Section */}
         <div className="container mx-auto px-4 text-center mt-20 md:mt-36">
-          <div className="inline-block bg-yellow-200 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+          <div className="inline-block bg-violet-100 text-indigo-800 text-xs font-semibold px-3 py-1 rounded-full mb-4">
             AI Powered
           </div>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight max-w-3xl mx-auto mb-6">
             Ace Interviews with{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-violet-500">
               {typedText}
             </span>{" "}
             Learning
@@ -90,20 +90,20 @@ const LandingPage = () => {
           </p>
           <button
             onClick={handleScrollToFeatures}
-            className="bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition"
+            className="bg-indigo-700 text-white px-6 py-3 rounded-full font-medium hover:bg-indigo-800 transition"
           >
             Get Started
           </button>
         </div>
 
         {/* Background blur */}
-        <div className="w-[500px] h-[500px] bg-amber-200/20 blur-[65px] absolute top-0 left-1/2 -translate-x-1/2 -z-10" />
+        <div className="w-[500px] h-[500px] bg-indigo-300/20 blur-[65px] absolute top-0 left-1/2 -translate-x-1/2 -z-10" />
       </div>
 
       {/* Features Section */}
       <section ref={featureRef} className="py-20 bg-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-10">Why Prep with Us?</h2>
+          <h2 className="text-3xl font-bold text-indigo-800 mb-10">Why Prep with Us?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
@@ -133,9 +133,9 @@ const LandingPage = () => {
             ].map((f, idx) => (
               <div
                 key={idx}
-                className="border border-gray-200 rounded-xl p-6 text-left shadow-sm hover:shadow-md transition"
+                className="border border-gray-200 rounded-xl p-6 text-left shadow-sm hover:shadow-md transition bg-indigo-50/10"
               >
-                <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
+                <h3 className="text-xl font-semibold text-indigo-700 mb-2">{f.title}</h3>
                 <p className="text-sm text-gray-600">{f.desc}</p>
               </div>
             ))}

@@ -95,7 +95,8 @@ exports.deleteSession = async (req, res) => {
     if (!session) {
       return res.status(404).json({ success: false, message: "Session not found" });
     }
-
+console.log("🔐 session.user:", session.user.toString());
+    console.log("🔐 req.user._id:", req.user._id.toString());
     // Check ownership
     if (session.user.toString() !== req.user._id.toString()) {
       return res.status(403).json({ success: false, message: "Unauthorized" });
